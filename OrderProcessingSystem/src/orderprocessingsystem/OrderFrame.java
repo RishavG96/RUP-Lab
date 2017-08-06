@@ -147,6 +147,10 @@ public class OrderFrame extends javax.swing.JFrame {
                             flag=1;
                             break;
                         }
+                        else
+                        {
+                            it2.next();
+                        }
                     }
                     if(flag==1)
                     {
