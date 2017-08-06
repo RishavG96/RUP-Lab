@@ -44,6 +44,9 @@ public class OrderFrame extends javax.swing.JFrame {
 
         login = new javax.swing.JButton();
         register = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,25 +64,49 @@ public class OrderFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("NEW USER SHOULD REGISTER FIRST!");
+
+        jLabel2.setText("CHOOSE AN OPTION");
+
+        jButton1.setText("ADMIN LOGIN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(login)
-                .addGap(66, 66, 66)
-                .addComponent(register)
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(login)
+                            .addComponent(jLabel2)
+                            .addComponent(register)
+                            .addComponent(jButton1))))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login)
-                    .addComponent(register))
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGap(62, 62, 62)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(login)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(register)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(42, 42, 42))
         );
 
         pack();
@@ -123,6 +150,7 @@ public class OrderFrame extends javax.swing.JFrame {
                     }
                     if(flag==1)
                     {
+                        frame.hide();
                         new Login().setVisible(true);
                     }
             }
@@ -153,10 +181,47 @@ public class OrderFrame extends javax.swing.JFrame {
                 String p2=password2.getText();
                 name.add(n2);
                 password.add(p2);
+                frame.hide();
                 new OrderFrame().setVisible(true);
             }
         });
     }//GEN-LAST:event_registerActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.hide();
+        JButton submit=new JButton("Submit");
+        JTextField name1=new JTextField("");
+        JTextField password1=new JTextField("");
+        System.out.println("Hello");
+        JFrame.setDefaultLookAndFeelDecorated(true);
+        JFrame frame = new JFrame("GridLayout Test");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new GridLayout(3, 2));
+        frame.add(new JLabel("Admin Name"));
+        frame.add(name1);
+        frame.add(new JLabel("Password"));
+        frame.add(password1);
+        frame.add(submit);
+        frame.pack();
+        frame.setVisible(true);
+        submit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String n=name1.getText();
+                String p=password1.getText();
+                int flag=0;    
+                if(n.equals("rishav") && p.equals("rishav"))
+                {
+                    flag=1;
+                }
+                if(flag==1)
+                {
+                    frame.hide();
+                    new Admin().setVisible(true);
+                }
+            }
+        });
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,6 +260,9 @@ public class OrderFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton login;
     private javax.swing.JButton register;
     // End of variables declaration//GEN-END:variables
