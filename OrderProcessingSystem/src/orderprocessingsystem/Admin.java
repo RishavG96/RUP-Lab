@@ -48,6 +48,11 @@ public class Admin extends javax.swing.JFrame {
         });
 
         jButton2.setText("SHOW ORDERS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         LOGOUT.setText("LOGOUT");
         LOGOUT.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +122,36 @@ public class Admin extends javax.swing.JFrame {
         
         jLabel2.setText(s);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Iterator iterator=OrderFrame.items.iterator();
+        Iterator iterator1=OrderFrame.quantity.iterator();
+        String s="";
+        s+="<html>";
+        while(iterator.hasNext())
+        {
+            switch((int)iterator.next())
+            {
+                case 1:
+                s+="Monitor";
+                break;
+                case 2:
+                s+="CPU";
+                break;
+                case 3:
+                s+="Keyboard";
+                break;
+                case 4:
+                s+="Mouse";
+                break;
+            }
+            s+="  "+iterator1.next()+ " quantity"+"<br/>";
+        }
+        s+="</html>";
+        
+        
+        jLabel3.setText(s);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
