@@ -10,10 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -34,6 +36,29 @@ public class OrderFrame extends javax.swing.JFrame {
      */
     public OrderFrame() {
         initComponents();
+        jToggleButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(jToggleButton1.isSelected())
+                {
+                    login.setVisible(false);
+                    register.setVisible(false);
+                    jButton1.setVisible(false);
+                    jLabel1.setVisible(false);
+                    jLabel2.setVisible(false);
+                    jToggleButton1.setText("APPEAR");
+                }
+                else
+                {
+                    login.setVisible(true);
+                    register.setVisible(true);
+                    jButton1.setVisible(true);
+                    jLabel1.setVisible(true);
+                    jLabel2.setVisible(true);
+                    jToggleButton1.setText("DISAPPEAR");
+                }
+            }
+        });
     }
 
     /**
@@ -51,6 +76,7 @@ public class OrderFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +105,13 @@ public class OrderFrame extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton1.setText("DISAPPEAR");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,21 +119,29 @@ public class OrderFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(register)
-                            .addComponent(jButton1)
-                            .addComponent(login))))
-                .addContainerGap(126, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(102, 102, 102)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(register)
+                                    .addComponent(jButton1)
+                                    .addComponent(login))))
+                        .addGap(0, 116, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(21, 21, 21)
+                .addComponent(jToggleButton1)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(login)
@@ -178,11 +219,18 @@ public class OrderFrame extends javax.swing.JFrame {
         JTextField name2=new JTextField("");
         JPasswordField password2=new JPasswordField("");
         JLabel label=new JLabel("");
+        JRadioButton rb1=new JRadioButton("Mr.");
+        JRadioButton rb2=new JRadioButton("Mrs.");
+        ButtonGroup bg=new ButtonGroup();
+        bg.add(rb1);
+        bg.add(rb2);
         JFrame.setDefaultLookAndFeelDecorated(true);
                 JFrame frame = new JFrame("GridLayout Test");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                frame.setLayout(new GridLayout(3, 2));
-                frame.add(new JLabel("Enter Username"));
+                frame.setLayout(new GridLayout(4, 2));
+                frame.add(rb1);
+                frame.add(rb2);
+                frame.add(new JLabel("Enter Name"));
                 frame.add(name2);
                 frame.add(new JLabel("Enter new Password"));
                 frame.add(password2);
@@ -255,6 +303,10 @@ public class OrderFrame extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -296,6 +348,7 @@ public class OrderFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton login;
     private javax.swing.JButton register;
     // End of variables declaration//GEN-END:variables
