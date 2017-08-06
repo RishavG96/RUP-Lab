@@ -47,7 +47,7 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("SHOW ORDERS");
+        jButton2.setText("SHOW LAST ORDER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -80,7 +80,7 @@ public class Admin extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 139, Short.MAX_VALUE)))
+                        .addGap(0, 117, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -118,9 +118,10 @@ public class Admin extends javax.swing.JFrame {
             s+=iterator.next()+"<br/>";
         }
         s+="</html>";
-        
-        
-        jLabel2.setText(s);
+        if(!s.equals("<html></html>"))
+            jLabel2.setText(s);
+        else
+            jLabel2.setText("No users till now!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -148,9 +149,10 @@ public class Admin extends javax.swing.JFrame {
             s+="  "+iterator1.next()+ " quantity"+"<br/>";
         }
         s+="</html>";
-        
-        
-        jLabel3.setText(s);
+        if(!s.equals("<html></html>"))
+            jLabel3.setText(s);
+        else
+            jLabel3.setText("No orders till now!");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

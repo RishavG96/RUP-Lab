@@ -13,6 +13,7 @@ import java.util.Iterator;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -25,6 +26,8 @@ public class OrderFrame extends javax.swing.JFrame {
     public static ArrayList<String> password=new ArrayList<>();
     public static ArrayList<Integer> items=new ArrayList<>();
     public static ArrayList<Integer> quantity=new ArrayList<>();
+    public static String username="";
+    public static int cp=0;
     int price=0;
     /**
      * Creates new form OrderFrame
@@ -42,6 +45,7 @@ public class OrderFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         login = new javax.swing.JButton();
         register = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -87,10 +91,10 @@ public class OrderFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(login)
                             .addComponent(jLabel2)
                             .addComponent(register)
-                            .addComponent(jButton1))))
+                            .addComponent(jButton1)
+                            .addComponent(login))))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,19 +122,22 @@ public class OrderFrame extends javax.swing.JFrame {
         this.hide();
         JButton submit=new JButton("Submit");
         JTextField name1=new JTextField("");
-        JTextField password1=new JTextField("");
+        JPasswordField password1=new JPasswordField("");
+        JLabel label=new JLabel("");
         System.out.println("Hello");
                 JFrame.setDefaultLookAndFeelDecorated(true);
                 JFrame frame = new JFrame("GridLayout Test");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 frame.setLayout(new GridLayout(3, 2));
-                frame.add(new JLabel("Username"));
+                frame.add(new JLabel("Enter Username"));
                 frame.add(name1);
-                frame.add(new JLabel("Password"));
+                frame.add(new JLabel("Enter Password"));
                 frame.add(password1);
                 frame.add(submit);
+                frame.add(label);
                 frame.pack();
                 frame.setVisible(true);
+                frame.setSize(600, 150);
                 submit.addActionListener(new ActionListener() {
 
             @Override
@@ -154,8 +161,12 @@ public class OrderFrame extends javax.swing.JFrame {
                     }
                     if(flag==1)
                     {
+                        username=n;
                         frame.hide();
                         new Login().setVisible(true);
+                    }
+                    else{
+                        label.setText("Username or password invalid!");
                     }
             }
         });
@@ -165,7 +176,8 @@ public class OrderFrame extends javax.swing.JFrame {
         this.hide();
         JButton register=new JButton("Register");
         JTextField name2=new JTextField("");
-        JTextField password2=new JTextField("");
+        JPasswordField password2=new JPasswordField("");
+        JLabel label=new JLabel("");
         JFrame.setDefaultLookAndFeelDecorated(true);
                 JFrame frame = new JFrame("GridLayout Test");
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -175,18 +187,28 @@ public class OrderFrame extends javax.swing.JFrame {
                 frame.add(new JLabel("Enter new Password"));
                 frame.add(password2);
                 frame.add(register);
+                frame.add(label);
                 frame.pack();
                 frame.setVisible(true);
+                frame.setSize(600, 150);
                 register.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                String n2=name2.getText();
+                String n2=(String)name2.getText();
                 String p2=password2.getText();
-                name.add(n2);
-                password.add(p2);
-                frame.hide();
-                new OrderFrame().setVisible(true);
+                
+                if((!(n2.equals("")))){
+                    System.out.println("hello"+n2+"world");
+                    name.add(n2);
+                    password.add(p2);
+                    frame.hide();
+                    new OrderFrame().setVisible(true);
+                }
+                else
+                {
+                    label.setText("Enter a username!");
+                }
             }
         });
     }//GEN-LAST:event_registerActionPerformed
@@ -195,7 +217,8 @@ public class OrderFrame extends javax.swing.JFrame {
         this.hide();
         JButton submit=new JButton("Submit");
         JTextField name1=new JTextField("");
-        JTextField password1=new JTextField("");
+        JPasswordField password1=new JPasswordField("");
+        JLabel label=new JLabel("");
         System.out.println("Hello");
         JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame("GridLayout Test");
@@ -206,8 +229,10 @@ public class OrderFrame extends javax.swing.JFrame {
         frame.add(new JLabel("Password"));
         frame.add(password1);
         frame.add(submit);
+        frame.add(label);
         frame.pack();
         frame.setVisible(true);
+        frame.setSize(600, 150);
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -223,6 +248,9 @@ public class OrderFrame extends javax.swing.JFrame {
                     frame.hide();
                     new Admin().setVisible(true);
                 }
+                else{
+                        label.setText("Username or password invalid!");
+                    }
             }
         });
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -264,6 +292,7 @@ public class OrderFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
