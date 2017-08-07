@@ -81,6 +81,23 @@ public class OrderProcessingSystem {
                                 char c1=sc.next().charAt(0);
                                 if(c1=='y'||c1=='Y')
                                 {
+                                    System.out.println("Enter payment mode:");
+                                    System.out.println("1.Debit Card\t2.Credit Card\t3.Net Banking\t4.Paytm Wallet");
+                                    int choice1=sc.nextInt();
+                                    if(choice1==1 || choice1==2)
+                                    {
+                                        System.out.println("Enter Card Number");
+                                        int card=sc.nextInt();
+                                        System.out.println("Enter PIN");
+                                        int pin=sc.nextInt();
+                                    }
+                                    else if(choice1==3 || choice1==4)
+                                    {
+                                        System.out.println("Enter User ID");
+                                        String userID=sc.next();
+                                        System.out.println("Enter Password");
+                                        String pass1=sc.next();
+                                    }
                                     System.out.println("Your order has been confirmed!");
                                     for(long i=0;i<1000000000;i++);
                                     for(long i=0;i<1000000000;i++);

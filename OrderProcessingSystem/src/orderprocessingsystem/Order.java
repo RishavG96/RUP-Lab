@@ -64,8 +64,10 @@ public class Order extends javax.swing.JFrame {
         logout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new java.awt.FlowLayout());
 
         jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1);
 
         logout.setText("LOGOUT");
         logout.addActionListener(new java.awt.event.ActionListener() {
@@ -73,30 +75,7 @@ public class Order extends javax.swing.JFrame {
                 logoutActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(317, Short.MAX_VALUE)
-                        .addComponent(logout)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(logout)
-                .addGap(83, 83, 83)
-                .addComponent(jLabel1)
-                .addContainerGap(169, Short.MAX_VALUE))
-        );
+        getContentPane().add(logout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
